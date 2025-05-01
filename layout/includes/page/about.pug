@@ -87,55 +87,7 @@ if site.data.about
                 .careers-none
             if careers.img
               img.author-content-img.no-lightbox(alt=careers.tips, src=url_for(careers.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'`)
-      
-      .author-content
-        if theme.LA.enable
-          - let cover = item.statistic.cover
-          .about-statistic.author-content-item(style=`background: url(${cover}) top / cover no-repeat;`)
-            .card-content
-              .author-content-item-tips 数据
-              span.author-content-item-title 访问统计
-              #statistic
-              .post-tips
-                | 统计信息来自 
-                a(href='https://invite.51.la/1NzKqTeb?target=V6', target='_blank', rel='noopener nofollow') 51la网站统计
-              .banner-button-group
-                - let link = item.statistic.link
-                - let text = item.statistic.text
-                a.banner-button(onclick=`pjax.loadUrl("${link}")`)
-                  i.anzhiyufont.anzhiyu-icon-arrow-circle-right
-                  |  
-                  span.banner-button-text=text
-        .author-content-item-group.column.mapAndInfo
-          - let mapBackground = item.map.background
-          - let mapBackgroundDark = item.map.backgroundDark
-          style.
-            .author-content-item.map {
-              background-image: url(#{mapBackground});
-            }
-            [data-theme='dark'] .author-content-item.map {
-              background-image: url(#{mapBackgroundDark});
-            }
-          .author-content-item.map.single
-            - let mapTitle = item.map.title
-            - let mapStrengthenTitle = item.map.StrengthenTitle
-            span.map-title=mapTitle
-              b=mapStrengthenTitle
-          .author-content-item.selfInfo.single
-            - let { selfInfoTips1, selfInfoContentYear, selfInfoTips2, selfInfoContent2, selfInfoTips3, selfInfoContent3 } = item.selfInfo
-            div
-              span.selfInfo-title=selfInfoTips1
-              |  
-              span.selfInfo-content#selfInfo-content-year(style='color:#43a6c6')=selfInfoContentYear
-            div
-              span.selfInfo-title=selfInfoTips2
-              |  
-              span.selfInfo-content(style='color:#c69043')=selfInfoContent2
-            div
-              span.selfInfo-title=selfInfoTips3
-              |  
-              span.selfInfo-content(style='color:#b04fe6')=selfInfoContent3
-      
+
       .author-content
         .author-content-item.personalities
           - let {author_name, personality_type, photo_url, personality_img, name_url, personality_type_color} = item.personalities
