@@ -3,13 +3,13 @@ name: Dispatch Blog Deploy Workflow
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   trigger-blog-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Dispatch Blog Deploy Workflow workflow_dispatch
+      - name: Dispatch remote blog autodeploy.yml
         env:
           REPO: ${{ secrets.BLOG_REPO }}
           TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -18,4 +18,4 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $TOKEN" \
             https://api.github.com/repos/$REPO/actions/workflows/autodeploy.yml/dispatches \
-            -d '{"ref":"master"}'
+            -d '{"ref":"main"}'
